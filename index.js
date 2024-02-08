@@ -1,11 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
-import home from "./routes/home.route.js";
-import products from "./routes/product.route.js";
+import superheroes from "./routes/superhero.route.js";
+import { connectDB } from "./database/database.js";
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
+connectDB();
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -13,8 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // routes
-app.use("/", home);
-app.use("/products", products);
+app.use("/superheroes", superheroes);
 
 app.listen(port, function () {
   console.log(`🚀 Fire app listening on port ${port}!`);
