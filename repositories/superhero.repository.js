@@ -9,7 +9,6 @@ export const getSuperheroesFromRepository = async (query) => {
   }
 }
 
-
 export const updateSuperheroesInRepository = async (query, update) => {
   try {
     const superhero = await Superhero.findOneAndUpdate(

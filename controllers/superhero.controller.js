@@ -2,7 +2,7 @@ import { getSuperheroesFromRepository, updateSuperheroesInRepository, deleteSupe
 
 export const getSuperheroes = async (req, res) => {
   try {
-    const superheroes = await getSuperheroesFromRepository();
+    const superheroes = await getSuperheroesFromRepository({});
     res.status(200).send(superheroes);
   } catch (e) {
     res.status(500).send(e.message, 'failed to fetch a list of superheroes');
